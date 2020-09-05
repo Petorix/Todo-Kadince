@@ -1,0 +1,19 @@
+.view-div-wrapper,
+.edit-form {
+  padding: 0 4%;
+  margin: 3% 0%;
+  border-radius: 25px;
+}
+
+.view-div,
+.edit-form,
+.edit-form-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-items: flex-end;
+}
+
+.underline-div {
+  background-color: #eee;
+  height: 2px;
+}

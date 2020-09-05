@@ -1,0 +1,8 @@
+#dropdown-basic-button {
+  background-color: #bad345;
+  border-color: #bad345;
+}
+
+#dropdown-basic-button:focus {
+  box-shadow: none;
+}

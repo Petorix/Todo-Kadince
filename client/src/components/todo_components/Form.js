@@ -4,20 +4,25 @@ import axios from "axios";
 class Form extends Component {
   state = {
     name: "",
-    completed: false,
+    description: "",
   };
 
   submit = (event) => {
+    event.preventDefault();
+
     axios({
       url: "/api/save",
       method: "POST",
       data: {
-        name: this.state.name,
-        completed: this.state.completed,
+        name: this.state.name ? this.state.name : "New Task",
+        description: this.state.description,
+        completed: false,
+        userId: "changeThisToProp",
       },
     })
       .then(() => {
         this.resetInputs();
+        this.props.getTasks();
       })
       .catch(() => {
         console.log("Error sending data.");
@@ -27,18 +32,18 @@ class Form extends Component {
   resetInputs = () => {
     this.setState({
       name: "",
-      completed: false,
+      description: "",
     });
   };
 
   render() {
     return (
       <form onSubmit={this.submit}>
-        <div className="form-input">
+        <div className="add-form-div">
           <input
             type="text"
             name="name"
-            placeholder="TODO Name"
+            placeholder="New Task"
             value={this.state.name}
             onChange={({ target }) => {
               const { name, value } = target;
@@ -48,23 +53,20 @@ class Form extends Component {
             }}
           />
         </div>
-        <div>
-          <input
-            type="checkbox"
-            name="completed"
-            className="form-input"
-            checked={this.state.completed}
+        <div className="add-form-div">
+          <textarea
+            name="description"
+            cols="30"
+            rows="10"
+            placeholder="Task description"
+            value={this.state.description}
             onChange={({ target }) => {
-              const { name, checked } = target;
+              const { name, value } = target;
               this.setState({
-                [name]: checked,
+                [name]: value,
               });
             }}
           />
-          <label for="form-input">
-            {" "}
-            {this.state.completed ? "Completed" : "Pending"}
-          </label>
         </div>
         <button>Add Task</button>
       </form>

@@ -4,7 +4,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const TaskSchema = new Schema({
   name: String,
+  description: String,
   completed: Boolean,
+  userId: String,
 });
 
 // Model

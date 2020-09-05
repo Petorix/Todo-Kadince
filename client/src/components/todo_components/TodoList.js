@@ -6,9 +6,12 @@ export default function TodoList(props) {
   return props.tasks.map((task, index) => (
     <Todo
       name={task.name}
+      description={task.description}
       completed={task.completed}
+      userId={task.userId}
       index={task._id}
       key={index}
+      getTasks={props.getTasks}
     />
   ));
 }

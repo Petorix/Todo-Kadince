@@ -5,7 +5,8 @@ const Task = require("../models/tasks");
 router.get("/api", (req, res) => {
   Task.find({})
     .then((data) => {
-      res.json(data);
+      // Reverse the data to show the most recently added task first
+      res.json(data.reverse());
     })
     .catch((e) => {
       console.log("Error fetching tasks: ", e);
@@ -28,14 +29,27 @@ router.post("/api/save", (req, res) => {
 
 router.post("/api/update", (req, res) => {
   const data = req.body;
-  const changeTask = new Task(data);
+  const task = new Task(data);
 
-  changeTask.updateOne(changeTask, changeTask, (e, docs) => {
+  task.updateOne(task, task, (e, docs) => {
     if (e) {
       console.log("Error on update: ", e);
     }
 
-    return res.json({ msg: "Updated data." });
+    return res.json({ msg: `Updated ${docs.nModified} data.` });
+  });
+});
+
+router.post("/api/delete", (req, res) => {
+  const data = req.body;
+  const task = new Task(data);
+
+  task.deleteOne(task, (e) => {
+    if (e) {
+      console.log("Error deleting task: ", e);
+    }
+
+    return res.json({ msg: "Deleted task." });
   });
 });
 
