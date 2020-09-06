@@ -1,5 +1,5 @@
 #main-content-wrapper {
-  width: 1000px;
+  width: 900px;
   margin: auto;
   margin-top: 30px;
   padding: 20px 50px;
@@ -14,12 +14,22 @@
 }
 
 #add-task-button {
-  color: #3d4616;
-  background-color: white;
-  border-color: white;
+  background-color: #5e45d3;
+  border-color: #5e45d3;
 }
 
 #add-task-button-wrapper {
   display: flex;
   justify-content: space-between;
+}
+
+body {
+  color: #646464;
+}
+
+.popup-content {
+  background: #fff;
+  width: 40%;
+  padding: 30px;
+  border: 2px solid #d7d7d7;
 }

@@ -4,6 +4,7 @@ import axios from "axios";
 import TodoList from "./TodoList";
 import Filter from "./Filters";
 import Header from "./Header";
+import Popup from "./Popup";
 import Button from "react-bootstrap/Button";
 
 import "./Todo_App.css";
@@ -12,6 +13,11 @@ export default class Todo_App extends Component {
   state = {
     tasks: [],
     filter: "All",
+    open: false,
+  };
+
+  setOpen = (value) => {
+    this.setState({ open: value });
   };
 
   setFilter = (name) => {
@@ -40,36 +46,32 @@ export default class Todo_App extends Component {
       });
   };
 
-  addTask = (event) => {
-    axios({
-      url: "/api/save",
-      method: "POST",
-      data: {
-        name: "New Task",
-        description: "",
-        completed: false,
-        userId: "changeThisToProp",
-      },
-    })
-      .then(() => {
-        this.getTasks();
-      })
-      .catch(() => {
-        console.log("Error sending data.");
-      });
-  };
-
   render() {
     return (
       <div>
         <Header />
         <div id="main-content-wrapper">
           <div id="add-task-button-wrapper">
-            <Button id="add-task-button" onClick={this.addTask}>
+            <Button
+              id="add-task-button"
+              onClick={() => this.setState({ open: !this.state.open })}
+            >
               Add Task
             </Button>
             <Filter setFilter={this.setFilter} />
           </div>
+          <Popup
+            open={this.state.open}
+            setOpen={this.setOpen}
+            action={"new"}
+            getTasks={this.getTasks}
+            setDescription={() => {
+              return;
+            }}
+            setName={() => {
+              return;
+            }}
+          />
           <TodoList
             getTasks={this.getTasks}
             tasks={this.state.tasks.filter(this.filter_map[this.state.filter])}

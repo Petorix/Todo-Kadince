@@ -8,6 +8,7 @@ export default function TodoList(props) {
       name={task.name}
       description={task.description}
       completed={task.completed}
+      dueDate={task.dueDate}
       userId={task.userId}
       index={task._id}
       key={index}

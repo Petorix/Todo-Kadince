@@ -1,0 +1,25 @@
+.react-datepicker-wrapper {
+  display: block;
+}
+
+#complete-button {
+  color: #646464;
+  background-color: white;
+  border-color: white;
+}
+
+#complete-button:focus {
+  border-color: white;
+}
+
+.flex-wrapper {
+  display: flex;
+}
+
+.push-right {
+  margin: auto 10px auto auto;
+}
+
+.save-button {
+  margin-right: 10px;
+}

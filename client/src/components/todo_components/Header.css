@@ -7,3 +7,7 @@ svg#logo-kadince {
 .navbar {
   box-shadow: #ddd 0px 0px 3px 3px;
 }
+
+.navbar-light .navbar-brand {
+  color: #212529 !important;
+}

@@ -6,6 +6,7 @@ const TaskSchema = new Schema({
   name: String,
   description: String,
   completed: Boolean,
+  dueDate: Date,
   userId: String,
 });
 

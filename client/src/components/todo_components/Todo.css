@@ -1,16 +1,30 @@
-.view-div-wrapper,
-.edit-form {
+.view-div-wrapper {
   padding: 0 4%;
   margin: 3% 0%;
   border-radius: 25px;
+  cursor: pointer;
+  position: relative;
 }
 
-.view-div,
-.edit-form,
-.edit-form-wrapper {
+.view-div {
   display: flex;
   align-items: flex-end;
   justify-items: flex-end;
+  font-size: 16pt;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  color: #646464;
+  text-rendering: optimizeLegibility;
+}
+
+.task-title {
+  margin: auto auto 0px 20px;
+}
+
+.task-date {
+  margin-top: auto;
+  margin-right: 15px;
+  margin-bottom: 0px;
 }
 
 .underline-div {

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
 import "./Filters.css";
 
 export default function Filters(props) {
