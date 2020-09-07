@@ -16,10 +16,21 @@ export default function Todo(props) {
 
   const viewTemplate = (
     <div key={props.index}>
-      <div className="view-div-wrapper" onClick={() => setOpen((o) => !o)}>
+      <div
+        className="view-div-wrapper"
+        onClick={() => {
+          console.log(props.name);
+          setName(props.name);
+          setDescription(props.description);
+          setOpen((o) => !o);
+        }}
+      >
         <div className="underline-div"></div>
         <div className="view-div">
-          <Checkmark className="checkmark" fill={props.completed ? GREEN : RED} />
+          <Checkmark
+            className="checkmark"
+            fill={props.completed ? GREEN : RED}
+          />
           <p className="task-title">{props.name}</p>
           {/* <p className="task-description">{props.description}</p> */}
           <p className="task-date">

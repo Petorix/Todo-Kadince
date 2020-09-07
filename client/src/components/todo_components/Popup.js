@@ -65,8 +65,6 @@ export default function CustomPopup(props) {
   function updateTask(event) {
     event.preventDefault();
 
-    console.log(newName);
-
     axios({
       url: "/api/update",
       method: "POST",
