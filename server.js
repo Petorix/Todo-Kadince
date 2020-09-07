@@ -35,9 +35,7 @@ server.use(express.json());
 server.use(express.urlencoded({ encoded: false }));
 
 // For heroku connection
-if (process.env.NODE_ENV === "production") {
-  server.use(express.stat("client/build"));
-}
+server.use(express.static("client/build"));
 
 server.use(morgan("tiny"));
 server.use("/", routes);
