@@ -18,11 +18,6 @@ const routes = require("./routes/api");
 const server = express();
 const PORT = process.env.PORT || 8080;
 
-// Database setup
-//  DB Info - make sure to change the whitelist entry for actual use
-//  Username: kadinceUser
-//  Password: kadince123
-//  const MONGODB_URI = 'mongodb+srv://kadinceUser:kadince123@todo-kadince.jvj1g.mongodb.net/<dbname>?retryWrites=true&w=majority';
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/todo_app", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
