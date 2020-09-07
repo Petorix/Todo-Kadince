@@ -17,8 +17,9 @@ export default function Todo(props) {
   const viewTemplate = (
     <div key={props.index}>
       <div className="view-div-wrapper" onClick={() => setOpen((o) => !o)}>
+        <div className="underline-div"></div>
         <div className="view-div">
-          <Checkmark fill={props.completed ? GREEN : RED} />
+          <Checkmark className="checkmark" fill={props.completed ? GREEN : RED} />
           <p className="task-title">{props.name}</p>
           {/* <p className="task-description">{props.description}</p> */}
           <p className="task-date">
@@ -40,7 +41,6 @@ export default function Todo(props) {
           />
         </div>
       </div>
-      <div className="underline-div"></div>
     </div>
   );
 

@@ -17,9 +17,22 @@
 }
 
 .push-right {
+  display: flex;
   margin: auto 10px auto auto;
 }
 
-.save-button {
+.bottom-button {
+  background-color: #5e45d3;
+  border-color: #5e45d3;
   margin-right: 10px;
+}
+
+.cancel-button {
+  display: none;
+}
+
+@media only screen and (max-width: 750px) {
+  .cancel-button {
+    display: block;
+  }
 }

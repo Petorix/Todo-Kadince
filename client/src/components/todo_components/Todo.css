@@ -17,6 +17,16 @@
   text-rendering: optimizeLegibility;
 }
 
+@media only screen and (max-width: 600px) {
+  .view-div {
+    font-size: 14pt;
+  }
+
+  .checkmark {
+    width: 22pt;
+  }
+}
+
 .task-title {
   margin: auto auto 0px 20px;
 }
@@ -30,4 +40,5 @@
 .underline-div {
   background-color: #eee;
   height: 2px;
+  margin-bottom: 20px;
 }

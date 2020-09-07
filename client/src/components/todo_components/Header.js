@@ -7,7 +7,7 @@ import "./Header.css";
 
 export default function Header(props) {
   return (
-    <Navbar bg="light">
+    <Navbar>
       <Navbar.Brand>
         <div className="d-inline-block align-top">
           <Logo />

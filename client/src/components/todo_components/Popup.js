@@ -32,13 +32,13 @@ export default function CustomPopup(props) {
   var isCompleted =
     props.action === "edit" ? props.completed : newTask.completed;
 
-  const closeModal = () => {
+  function closeModal() {
     if (props.action === "edit") {
       setNewName(props.name);
       setNewDescription(props.description);
     }
     props.setOpen(false);
-  };
+  }
 
   function addTask(event) {
     event.preventDefault();
@@ -116,8 +116,8 @@ export default function CustomPopup(props) {
 
   return (
     <Popup open={props.open} onClose={closeModal} modal position="right center">
-      {props.action === "edit" ? (
-        <div className="flex-wrapper">
+      <div className="flex-wrapper">
+        {props.action === "edit" ? (
           <div className="push-right">
             <Button
               id="complete-button"
@@ -129,8 +129,8 @@ export default function CustomPopup(props) {
               {!isCompleted ? "Mark as complete" : "Mark as incomplete"}{" "}
             </Button>
           </div>
-        </div>
-      ) : null}
+        ) : null}
+      </div>
 
       <Form className="edit-form">
         <Form.Group controlId="taskForm.ControlInput1">
@@ -173,16 +173,21 @@ export default function CustomPopup(props) {
       <div className="flex-wrapper">
         <div className="push-right">
           <Button
-            className="save-button"
+            className="bottom-button"
             onClick={props.action === "edit" ? updateTask : addTask}
           >
             Save
+          </Button>
+          <Button className="bottom-button" onClick={closeModal}>
+            Cancel
           </Button>
           {/* I won't need this due to closeModal being called when user clicks outside of modal.
             I'll leave it just in case.
           <button onClick={closeModal}>Cancel</button> */}
           {props.action === "edit" ? (
-            <Button onClick={deleteTask}>Delete</Button>
+            <Button className="bottom-button" onClick={deleteTask}>
+              Delete
+            </Button>
           ) : null}
         </div>
       </div>
