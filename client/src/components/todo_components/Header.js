@@ -9,9 +9,7 @@ export default function Header(props) {
   return (
     <Navbar>
       <Navbar.Brand>
-        <div className="d-inline-block align-top">
-          <Logo />
-        </div>
+        <div className="d-inline-block align-top">Peter Williams</div>
       </Navbar.Brand>
       <Nav className="ml-auto">
         <p></p>
